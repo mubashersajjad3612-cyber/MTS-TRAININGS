@@ -1,0 +1,50 @@
+import { AcademyDatabase } from '../types/academy';
+import { DEFAULT_ROLE_PERMISSIONS } from '../utils/permissions';
+
+export const INITIAL_ACADEMY_DATA: AcademyDatabase = {
+  settings: {
+    academyName: 'MTS Trainings',
+    phone: '',
+    whatsapp: '',
+    email: 'mts.training2026@gmail.com',
+    primaryAdminEmail: 'mts.training2026@gmail.com',
+    address: '',
+    currency: 'PKR',
+    defaultDueDay: 10,
+    lowAttendanceAlertPct: 75,
+    adminPin: '2026',
+    staffPin: '1234',
+    rolePermissions: DEFAULT_ROLE_PERMISSIONS,
+  },
+  users: [
+    {
+      id: 'U-001',
+      name: 'Mubasher Sajjad',
+      email: 'mubasher.sajjad3612@gmail.com',
+      password: 'admin@2026',
+      role: 'Admin',
+      status: 'Active',
+      createdAt: '2026-11-17',
+    },
+    {
+      id: 'U-002',
+      name: 'MTS Primary Desk',
+      email: 'mts.training2026@gmail.com',
+      password: 'mts@2026',
+      role: 'Admin',
+      status: 'Active',
+      createdAt: '2026-11-17',
+    },
+  ],
+  teachers: [],
+  hrStaff: [],
+  payroll: [],
+  batches: [],
+  students: [],
+  inquiries: [],
+  fees: [],
+  attendance: [],
+  expenses: [],
+  whatsappLogs: [],
+  emailLogs: [],
+};

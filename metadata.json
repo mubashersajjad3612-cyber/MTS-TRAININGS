@@ -1,0 +1,8 @@
+{
+  "name": "MTS Trainings — Academy OS",
+  "description": "Cloud-accessible Institute & Learning Management System for MTS Trainings with live Google Sheets sync, admission inquiries, fee management, attendance, and reporting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

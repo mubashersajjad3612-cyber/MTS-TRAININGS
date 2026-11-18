@@ -1,0 +1,248 @@
+```python
+import pandas as pd
+
+# Read the attached file (even though it's labeled object:pdf, the name ends in .xlsx, let's check both or inspect)
+filepath = 'MTS TRAININGS_Management_System_Dashboard.xlsx'
+try:
+    xls = pd.ExcelFile(filepath)
+    print("Excel sheets:", xls.sheet_names)
+    for sheet in xls.sheet_names:
+        print(f"\n--- Sheet: {sheet} ---")
+        df = pd.read_excel(filepath, sheet_name=sheet)
+        print(df.head(15).to_string())
+except Exception as e:
+    print("Not an excel file or error:", e)
+
+
+```
+
+```text
+Excel sheets: ['HOME', 'STUDENTS', 'FEES', 'ATTENDANCE', 'TEACHERS', 'BATCHES', 'EXPENSES', 'WHATSAPP', 'SETTINGS']
+
+--- Sheet: HOME ---
+                                                      ACADEMY OS — MANAGEMENT DASHBOARD           Unnamed: 1  Unnamed: 2                 Unnamed: 3
+0   Automatic overview • Blue cells are filters • Update records in the relevant sheets                  NaN         NaN                        NaN
+1                                                                                   NaN                  NaN         NaN                        NaN
+2                                                                         PERIOD FILTER                  NaN         NaN  OVERALL STATUS (ALL TIME)
+3                                                                         Select Period           This Month         NaN             Total Students
+4                                                                             From Date                  NaN         NaN            Active Students
+5                                                                               To Date                  NaN         NaN           Total Fee Billed
+6                                                                           Custom From  2026-01-01 00:00:00         NaN            Total Collected
+7                                                                             Custom To  2026-12-31 00:00:00         NaN           Outstanding Fees
+8                                                                                   NaN                  NaN         NaN        Overdue Fee Records
+9                                                                                   NaN                  NaN         NaN             Total Expenses
+10                                                              SELECTED PERIOD METRICS                  NaN         NaN             Net (All Time)
+11                                                                         New Students                  NaN         NaN       Attendance Present %
+12                                                                       Fees Collected                  NaN         NaN             Active Batches
+13                                                                   Expenses in Period                  NaN         NaN                   Teachers
+14                                                                        Net in Period                  NaN         NaN                        NaN
+
+--- Sheet: STUDENTS ---
+                                                                                             STUDENTS     Unnamed: 1     Unnamed: 2 Unnamed: 3     Unnamed: 4    Unnamed: 5 Unnamed: 6 Unnamed: 7 Unnamed: 8   Unnamed: 9          Unnamed: 10     Unnamed: 11   Unnamed: 12  Unnamed: 13
+0   Enter a student name; ID is automatic. Select a batch and the teacher is looked up automatically.            NaN            NaN        NaN            NaN           NaN        NaN        NaN        NaN          NaN                  NaN             NaN           NaN          NaN
+1                                                                                                 NaN            NaN            NaN        NaN            NaN           NaN        NaN        NaN        NaN          NaN                  NaN             NaN           NaN          NaN
+2                                                                                                 NaN            NaN            NaN        NaN            NaN           NaN        NaN        NaN        NaN          NaN                  NaN             NaN           NaN          NaN
+3                                                                                          Student ID           Name    Father Name     Gender  Student Phone  Parent Phone     Course      Batch    Teacher  Monthly Fee               Status  Admission Date  Attendance %  Outstanding
+4                                                                                                 NaN       Ali Raza  Muhammad Raza       Male    03111223344   03001112233    English       B-01        NaN       Active  2025-01-10 00:00:00             NaN           NaN          NaN
+5                                                                                                 NaN      Hina Shah     Imran Shah     Female    03122334455   03002223344    English       B-01        NaN       Active  2025-01-12 00:00:00             NaN           NaN          NaN
+6                                                                                                 NaN      Usman Ali      Tariq Ali       Male    03133445566   03003334455       Math       B-02        NaN       Active  2025-01-15 00:00:00             NaN           NaN          NaN
+7                                                                                                 NaN     Sana Iqbal    Javed Iqbal     Female    03144556677   03004445566       Math       B-02        NaN       Active  2025-01-18 00:00:00             NaN           NaN          NaN
+8                                                                                                 NaN     Hamza Khan      Asif Khan       Male    03155667788   03005556677   Computer       B-03        NaN       Active  2025-02-01 00:00:00             NaN           NaN          NaN
+9                                                                                                 NaN    Ayesha Noor     Noor Ahmed     Female    03166778899   03006667788    English       B-01        NaN       Active  2025-02-05 00:00:00             NaN           NaN          NaN
+10                                                                                                NaN    Omar Farooq   Farooq Ahmed       Male   031888990011   03008889900       Math       B-02        NaN       Active  2025-02-12 00:00:00             NaN           NaN          NaN
+11                                                                                                NaN      Maham Ali     Ali Hassan     Female    03199001122   03009990011    English       B-01        NaN       Active  2025-02-15 00:00:00             NaN           NaN          NaN
+12                                                                                                NaN  Bilal Hussain    Hussain Ali       Male    03200112233   03000112233   Computer       B-03        NaN       Active  2025-02-20 00:00:00             NaN           NaN          NaN
+13                                                                                                NaN   Fatima Zahra     Zahid Khan     Female    03211223344   03001112233    English       B-01        NaN       Active  2025-03-01 00:00:00             NaN           NaN          NaN
+14                                                                                                NaN     Ahmed Raza     Raza Ullah       Male    03222334455   03002223344       Math       B-02        NaN       Active  2025-03-05 00:00:00             NaN           NaN          NaN
+
+--- Sheet: FEES ---
+                                                                                                                   FEES  Unnamed: 1    Unnamed: 2 Unnamed: 3  Unnamed: 4 Unnamed: 5   Unnamed: 6           Unnamed: 7      Unnamed: 8 Unnamed: 9 Unnamed: 10 Unnamed: 11
+0   Select Student ID and enter month, fee, discount and payment. Balance, status and due date calculate automatically.         NaN           NaN        NaN         NaN        NaN          NaN                  NaN             NaN        NaN         NaN         NaN
+1                                                                                                                   NaN         NaN           NaN        NaN         NaN        NaN          NaN                  NaN             NaN        NaN         NaN         NaN
+2                                                                                                                   NaN         NaN           NaN        NaN         NaN        NaN          NaN                  NaN             NaN        NaN         NaN         NaN
+3                                                                                                                Fee ID  Student ID  Student Name      Month  Fee Amount   Discount  Amount Paid         Payment Date  Payment Method    Balance      Status    Due Date
+4                                                                                                                   NaN       S-003           NaN   Jan-2025        7500          0         7500  2025-01-08 00:00:00   Bank Transfer        NaN         NaN         NaN
+5                                                                                                                   NaN       S-003           NaN   Feb-2025        7500          0         3750  2025-02-08 00:00:00        JazzCash        NaN         NaN         NaN
+6                                                                                                                   NaN       S-003           NaN   Mar-2025        7500          0            0                  NaN             NaN        NaN         NaN         NaN
+7                                                                                                                   NaN       S-004           NaN   Jan-2025        7500          0         3750  2025-01-08 00:00:00        JazzCash        NaN         NaN         NaN
+8                                                                                                                   NaN       S-004           NaN   Feb-2025        7500          0         7500  2025-02-08 00:00:00        JazzCash        NaN         NaN         NaN
+9                                                                                                                   NaN       S-004           NaN   Mar-2025        7500          0            0                  NaN             NaN        NaN         NaN         NaN
+10                                                                                                                  NaN       S-005           NaN   Jan-2025       12000          0        12000  2025-01-08 00:00:00        JazzCash        NaN         NaN         NaN
+11                                                                                                                  NaN       S-005           NaN   Feb-2025       12000          0        12000  2025-02-08 00:00:00        JazzCash        NaN         NaN         NaN
+12                                                                                                                  NaN       S-005           NaN   Mar-2025       12000          0            0                  NaN             NaN        NaN         NaN         NaN
+13                                                                                                                  NaN       S-006           NaN   Jan-2025        8500          0         8500  2025-01-08 00:00:00        JazzCash        NaN         NaN         NaN
+14                                                                                                                  NaN       S-006           NaN   Feb-2025        8500          0         8500  2025-02-08 00:00:00        JazzCash        NaN         NaN         NaN
+
+--- Sheet: ATTENDANCE ---
+                                                                                   ATTENDANCE  Unnamed: 1    Unnamed: 2 Unnamed: 3 Unnamed: 4 Unnamed: 5
+0   Select Student ID; student name and batch are automatic. Status: Present / Absent / Late.         NaN           NaN        NaN        NaN        NaN
+1                                                                                         NaN         NaN           NaN        NaN        NaN        NaN
+2                                                                                         NaN         NaN           NaN        NaN        NaN        NaN
+3                                                                                        Date  Student ID  Student Name      Batch     Status    Remarks
+4                                                                         2025-04-01 00:00:00       S-001           NaN        NaN    Present        NaN
+5                                                                         2025-04-01 00:00:00       S-002           NaN        NaN    Present        NaN
+6                                                                         2025-04-01 00:00:00       S-003           NaN        NaN    Present        NaN
+7                                                                         2025-04-01 00:00:00       S-004           NaN        NaN       Late        NaN
+8                                                                         2025-04-01 00:00:00       S-005           NaN        NaN    Present        NaN
+9                                                                         2025-04-01 00:00:00       S-006           NaN        NaN     Absent        NaN
+10                                                                        2025-04-02 00:00:00       S-001           NaN        NaN    Present        NaN
+11                                                                        2025-04-02 00:00:00       S-002           NaN        NaN    Present        NaN
+12                                                                        2025-04-02 00:00:00       S-003           NaN        NaN       Late        NaN
+13                                                                        2025-04-02 00:00:00       S-004           NaN        NaN    Present        NaN
+14                                                                        2025-04-02 00:00:00       S-005           NaN        NaN    Present        NaN
+
+--- Sheet: TEACHERS ---
+                                                                       TEACHERS   Unnamed: 1   Unnamed: 2 Unnamed: 3      Unnamed: 4 Unnamed: 5
+0  Add teachers. Teacher IDs are generated automatically; edit blue cells only.          NaN          NaN        NaN             NaN        NaN
+1                                                                           NaN          NaN          NaN        NaN             NaN        NaN
+2                                                                           NaN          NaN          NaN        NaN             NaN        NaN
+3                                                                    Teacher ID         Name        Phone    Subject  Monthly Salary     Status
+4                                                                           NaN  Ayesha Khan  03001234567    English           45000     Active
+5                                                                           NaN  Bilal Ahmed  03009876543       Math           40000     Active
+6                                                                           NaN   Sara Malik  03005551234   Computer           35000     Active
+
+--- Sheet: BATCHES ---
+                                                                                         BATCHES        Unnamed: 1 Unnamed: 2   Unnamed: 3   Unnamed: 4 Unnamed: 5 Unnamed: 6 Unnamed: 7  Unnamed: 8   Unnamed: 9
+0  Student count, seats left and occupancy are calculated automatically from the STUDENTS sheet.               NaN        NaN          NaN          NaN        NaN        NaN        NaN         NaN          NaN
+1                                                                                            NaN               NaN        NaN          NaN          NaN        NaN        NaN        NaN         NaN          NaN
+2                                                                                            NaN               NaN        NaN          NaN          NaN        NaN        NaN        NaN         NaN          NaN
+3                                                                                       Batch ID        Batch Name     Course      Teacher         Days       Time   Capacity   Students  Seats Left  Occupancy %
+4                                                                                            NaN   English Morning    English  Ayesha Khan  Mon Wed Fri      09:00         20        NaN         NaN          NaN
+5                                                                                            NaN      Math Evening       Math  Bilal Ahmed  Tue Thu Sat      16:00         15        NaN         NaN          NaN
+6                                                                                            NaN  Computer Weekend   Computer   Sara Malik      Sat Sun      10:00         12        NaN         NaN          NaN
+
+--- Sheet: EXPENSES ---
+                                                               EXPENSES           Unnamed: 1   Unnamed: 2    Unnamed: 3 Unnamed: 4 Unnamed: 5
+0   Record academy expenses. Total expenses are shown on the dashboard.                  NaN          NaN           NaN        NaN        NaN
+1                                                                   NaN                  NaN          NaN           NaN        NaN        NaN
+2                                                                   NaN                  NaN          NaN           NaN        NaN        NaN
+3                                                            Expense ID                 Date     Category   Description     Amount    Paid By
+4                                                                   NaN  2025-01-05 00:00:00         Rent  Monthly rent      40000      Admin
+5                                                                   NaN  2025-01-10 00:00:00       Salary   Ayesha Khan      45000      Admin
+6                                                                   NaN  2025-01-10 00:00:00       Salary   Bilal Ahmed      40000      Admin
+7                                                                   NaN  2025-01-15 00:00:00  Electricity          Bill       8500      Admin
+8                                                                   NaN  2025-02-05 00:00:00         Rent  Monthly rent      40000      Admin
+9                                                                   NaN  2025-02-10 00:00:00       Salary   Ayesha Khan      45000      Admin
+10                                                                  NaN  2025-02-10 00:00:00       Salary   Bilal Ahmed      40000      Admin
+11                                                                  NaN  2025-03-05 00:00:00         Rent  Monthly rent      40000      Admin
+12                                                                  NaN  2025-03-10 00:00:00       Salary      Teachers      85000      Admin
+13                                                                  NaN  2025-04-05 00:00:00         Rent  Monthly rent      40000      Admin
+
+--- Sheet: WHATSAPP ---
+                                                                                      WHATSAPP MESSAGING     Unnamed: 1
+0   Select a Student ID. The green links open WhatsApp with a pre-filled message. Review before sending.            NaN
+1                                                                                                    NaN            NaN
+2                                                                                                    NaN            NaN
+3                                                                                             Student ID          S-001
+4                                                                                                    NaN            NaN
+5                                                                                                   Name            NaN
+6                                                                                           Parent Phone            NaN
+7                                                                                            Monthly Fee            NaN
+8                                                                                            Outstanding            NaN
+9                                                                                                    NaN            NaN
+10                                                                                                   NaN            NaN
+11                                                                                          Message Type  WhatsApp Link
+12                                                                                          Fee Reminder            NaN
+13                                                                                           Overdue Fee            NaN
+14                                                                                      Payment Received            NaN
+
+--- Sheet: SETTINGS ---
+                                                                            ACADEMY SETTINGS                Unnamed: 1
+0                                                                                        NaN                       NaN
+1                                                                               Academy Name     Bright Future Academy
+2                                                                                      Phone              042-12345678
+3                                                                        WhatsApp (92300...)              923001234567
+4                                                                                      Email  info@brightfuture.edu.pk
+5                                                                                    Address          Lahore, Pakistan
+6                                                                                   Currency                       PKR
+7                                                                            Default Due Day                        10
+8                                                                     Low Attendance Alert %                      0.75
+9                                                                                        NaN                       NaN
+10                                                                                       NaN                       NaN
+11  Blue cells are editable. Phone numbers should be entered with country code for WhatsApp.                       NaN
+
+
+```
+
+Here is a comprehensive, copy-paste-ready prompt designed specifically for **Google AI Studio** (which generates full-stack web apps or Google Apps Script web apps). It incorporates the exact database structure from your attached `MTS TRAININGS_Management_System_Dashboard.xlsx` file (`HOME`, `STUDENTS`, `FEES`, `ATTENDANCE`, `TEACHERS`, `BATCHES`, `EXPENSES`, `WHATSAPP`, `SETTINGS`) along with all your requested features, including the **Admission Inquiry Form**, **Reports Module**, and **Google Sheets database integration**.
+
+---
+
+### 📋 Copy & Paste This Prompt into Google AI Studio:
+
+```text
+Act as an expert Full-Stack Web Developer and Google Apps Script / Google Sheets API Architect. Build a complete, responsive, cloud-accessible Learning & Institute Management System (LMS / Academy OS) web application for an IT Training Institute ("MTS Trainings") that can be accessed from anywhere via a single web URL and uses Google Sheets as its live backend database.
+
+### 1. CORE ARCHITECTURE & DATABASE (GOOGLE SHEETS INTEGRATION)
+- **Live Google Sheets Sync:** All data must be read from and saved directly into a connected Google Spreadsheet (via Google Apps Script Web App backend or Google Sheets API) so the institute admin can access the system via a web URL from any device while maintaining a live, backed-up spreadsheet.
+- **Database Schema (Match these exact 10 Tabs/Sheets):**
+  1. `SETTINGS`: Institute Name, Phone, WhatsApp Number (92300...), Email, Address, Currency (PKR), Default Due Day, Low Attendance Alert % (75%).
+  2. `INQUIRIES`: Inquiry ID (auto-generated `INQ-001`), Date, Full Name, Father Name, Gender, Phone, Email, Interested Course, Preferred Timing, Source (Walk-in, Social Media, Referral, Call), Follow-up Date, Status (New, Contacted, Demo Scheduled, Converted, Closed), Remarks.
+  3. `STUDENTS`: Student ID (auto-generated `S-001`), Name, Father Name, Gender, Student Phone, Parent Phone, Course, Batch ID, Teacher (auto-looked up from Batch), Monthly Fee, Status (`Active`, `Left`, `Completed`), Admission Date, Left Date, Attendance %, Total Outstanding Balance.
+  4. `BATCHES`: Batch ID (`B-01`), Batch Name, Course, Assigned Teacher, Days (e.g., Mon-Wed-Fri), Time, Max Capacity, Enrolled Students Count, Seats Left, Occupancy %.
+  5. `TEACHERS`: Teacher ID (`T-001`), Name, Phone, Subject/Course, Monthly Salary, Status (`Active`, `Inactive`).
+  6. `FEES`: Fee ID (`F-001`), Student ID, Student Name, Batch, Month (e.g., `Nov-2026`), Fee Amount, Discount, Amount Paid, Payment Date, Payment Method (`Cash`, `Bank Transfer`, `JazzCash`, `EasyPaisa`), Balance, Status (`Paid`, `Partial`, `Unpaid`, `Overdue`), Due Date.
+  7. `ATTENDANCE`: Date, Student ID, Student Name, Batch, Status (`Present`, `Absent`, `Late`), Remarks.
+  8. `EXPENSES`: Expense ID (`E-001`), Date, Category (`Rent`, `Salary`, `Electricity`, `Internet`, `Marketing`, `Equipment`, `Misc`), Description, Amount, Paid By.
+  9. `WHATSAPP_LOGS`: Log ID, Date, Student ID, Message Type, Status.
+
+### 2. NAVIGATION & USER INTERFACE
+Build a clean, modern, mobile-friendly dashboard UI with a sidebar navigation menu containing:
+1. **Dashboard (Home)**
+2. **Admission Inquiries** (with a shareable public/kiosk Admission Inquiry Form mode)
+3. **Students & Admissions** (with 1-click "Convert Inquiry to Student")
+4. **Batches & Teachers**
+5. **Fee Management**
+6. **Daily Attendance**
+7. **Expenses & Finance**
+8. **Reports Center** (Dedicated prominent button in top header & sidebar)
+9. **WhatsApp Reminders**
+10. **Settings**
+
+### 3. DETAILED MODULE REQUIREMENTS
+
+#### A. Dashboard (Home)
+- **Period Filter:** Dropdown for `This Month`, `Last Month`, `This Year`, `All Time`, and `Custom Date Range (From - To)`.
+- **KPI Cards:** Total Students, Active Students, Left Students, Total Fee Billed, Total Collected, Outstanding/Recovery Fees, Overdue Records, Total Expenses, Net Profit/Loss, Overall Attendance %, Active Batches, and Total Inquiries.
+- **Visual Charts:** Monthly Fee Collection vs. Expenses bar chart, and Batch Occupancy progress bars.
+
+#### B. Admission Inquiry Form & Management
+- **Inquiry Form:** Clean form to log walk-in or online prospective students (Name, Father Name, Gender, Phone, Course Interested, Preferred Slot, Source, Follow-up Date, Notes). Include a **"Public Form Link / Kiosk Mode"** toggle so receptionists or students on a tablet can fill it out without seeing admin financials.
+- **Inquiry Pipeline:** Filter inquiries by Status (`New`, `Follow-up`, `Converted`, `Closed`) and a **"Convert to Admission"** button that auto-fills the New Student Admission form with the inquiry details.
+
+#### C. Students, Batches & Attendance
+- **Students:** Add/Edit student records, auto-generate Student IDs, assign to a Batch (automatically links Course, Teacher, and default Fee), and mark students as `Active`, `Completed`, or `Left` (recording the Left Date and Reason).
+- **Batches:** Create batches with capacity limits; automatically calculate enrolled active students, seats remaining, and occupancy percentage.
+- **Attendance:** Select a `Batch` and `Date` to load all active students in that batch with quick radio buttons (`Present`, `Absent`, `Late`) and a "Mark All Present" shortcut. Automatically highlight students falling below the `Low Attendance Alert %` set in Settings.
+
+#### D. Fee Management & WhatsApp Integration
+- Generate monthly fee vouchers/invoices for individual students or entire batches in one click.
+- Record full or partial payments with Payment Method (`Cash`, `JazzCash`, `EasyPaisa`, `Bank Transfer`), auto-calculating Discount, Balance, and Status (`Paid`, `Partial`, `Overdue`).
+- **Printable Fee Receipt:** Generate a clean, printable/PDF fee receipt modal for every payment.
+- **1-Click WhatsApp Integration:** Generate direct `https://wa.me/` links pre-filled with dynamic templates for:
+  - *Fee Reminder* (Upcoming due date)
+  - *Overdue Fee Alert* (Pending balance)
+  - *Payment Confirmation Receipt*
+  - *Low Attendance Alert*
+
+#### E. Dedicated "Reports" Button & Analytics Suite
+Create a prominent **Reports** button that opens a comprehensive reporting center with date filters, search, **Export to CSV/Excel**, and **Print Report** functionality for the following mandatory reports:
+1. **Total Admission Report:** Complete list of admissions filterable by Date Range, Course, and Gender, showing total enrollments, revenue potential, and monthly admission trends.
+2. **Batch-Wise Admission Report:** Breakdown of every batch showing Batch Name, Teacher, Timing, Total Capacity, Active Enrolled Students, Left Students, Seats Available, and Occupancy %.
+3. **Left / Dropout Students Report:** List of all students with status `Left`, showing Student ID, Name, Course, Batch, Admission Date, Left Date, Duration Attended, and any unpaid balance left behind.
+4. **Fees Collection Report:** Detailed ledger of all fee transactions filterable by Date Range, Month, Batch, and Payment Method (`Cash`, `Bank`, `JazzCash`, `EasyPaisa`), showing Total Billed, Total Discounts, Net Collected, and Total Paid.
+5. **Fee Recovery / Defaulters Report:** Actionable list of all students with `Balance > 0` (`Partial`, `Unpaid`, or `Overdue`), sorted by highest pending amount, showing Parent Phone, Months Pending, Total Due, and a direct **Send WhatsApp Recovery Reminder** button next to each defaulter.
+
+### 4. TECHNICAL & SECURITY DETAILS
+- Include a clean **Login Screen** (Admin & Staff roles stored in `SETTINGS` or Google Auth) so the public URL is secure.
+- Provide complete, well-commented code along with step-by-step instructions on how to deploy it via **Google Apps Script (Web App)** linked to a Google Sheet so I get an instant, free, shareable URL accessible from anywhere.
+
+```
+
+---
+
+### 💡 Quick Tip for Using This in Google AI Studio:
+
+1. Open **[Google AI Studio](https://aistudio.google.com/)** and select **Build** (or start a new chat with **Gemini 2.5 Pro**).
+2. Paste the prompt above.
+3. **For Instant Free Hosting:** Ask AI Studio to output it as a **Google Apps Script Web App (`Code.gs` + `Index.html`)**. When you paste that into a Google Sheet (`Extensions > Apps Script > Deploy > Web App`), Google gives you a permanent `[script.google.com/](https://script.google.com/)...` URL that works on phones, tablets, and PCs with zero server costs and live Google Sheets syncing.
